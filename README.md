@@ -1,6 +1,6 @@
-# Finance-Tracker
+# Student Finance-Tracker
 
-#  Student Finance Tracker
+
 
 ## Overview
 This project presents a centralized personal finance tracking platform designed for students. The system allows users to record, manage, and monitor their financial transactions in a simple and efficient way.
