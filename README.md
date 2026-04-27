@@ -1,4 +1,4 @@
-# Jolly_Jobson_finance-tracker
+# Finance-Tracker
 
 #  Student Finance Tracker
 
