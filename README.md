@@ -314,15 +314,6 @@ Add screenshots here:
 
 ---
 
-# Author
-
-## Jobson Jolly
-Master’s in Computer Science  
-IU International University of Applied Sciences  
-Berlin, Germany
-
----
-
 # Conclusion
 
 FinTrack successfully demonstrates the development of a secure and interactive full-stack financial analytics dashboard system. The application provides users with a simple yet professional platform for tracking income and expenses, analyzing spending behaviour, and monitoring financial health.
