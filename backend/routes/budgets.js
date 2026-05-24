@@ -11,38 +11,7 @@ const authMiddleware =
   require("../middleware/authMiddleware");
 
 
-// GET TRANSACTIONS
-router.get(
-  "/",
-  authMiddleware,
-  async (req, res) => {
-
-    try {
-
-      const transactions =
-        await prisma.transaction.findMany({
-          where: {
-            userId: req.user.id,
-          },
-        });
-
-      res.json(transactions);
-
-    } catch (error) {
-
-      console.log(error);
-
-      res.status(500).json({
-        message:
-          "Failed to fetch transactions",
-      });
-
-    }
-  }
-);
-
-
-// CREATE TRANSACTION
+// CREATE BUDGET
 router.post(
   "/",
   authMiddleware,
@@ -53,20 +22,20 @@ router.post(
       const {
         amount,
         category,
-        type,
+        month,
       } = req.body;
 
-      const transaction =
-        await prisma.transaction.create({
+      const budget =
+        await prisma.budget.create({
           data: {
             amount: Number(amount),
             category,
-            type,
+            month,
             userId: req.user.id,
           },
         });
 
-      res.json(transaction);
+      res.json(budget);
 
     } catch (error) {
 
@@ -74,7 +43,38 @@ router.post(
 
       res.status(500).json({
         message:
-          "Failed to create transaction",
+          "Failed to create budget",
+      });
+
+    }
+  }
+);
+
+
+// GET BUDGETS
+router.get(
+  "/",
+  authMiddleware,
+  async (req, res) => {
+
+    try {
+
+      const budgets =
+        await prisma.budget.findMany({
+          where: {
+            userId: req.user.id,
+          },
+        });
+
+      res.json(budgets);
+
+    } catch (error) {
+
+      console.log(error);
+
+      res.status(500).json({
+        message:
+          "Failed to fetch budgets",
       });
 
     }

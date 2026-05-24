@@ -3,25 +3,27 @@ const cors = require("cors");
 
 const app = express();
 
-// Import routes
-const authRoutes = require("./routes/auth");
-const transactionRoutes = require("./routes/transactions");
-
 // Middleware
 app.use(cors());
 app.use(express.json());
 
-// Routes
+// Import Routes
+const authRoutes = require("./routes/authRoutes");
+const transactionRoutes = require("./routes/transactions");
+const budgetRoutes =
+  require("./routes/budgets");
+// Use Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/transactions", transactionRoutes);
+app.use("/api/budgets", budgetRoutes);
 
-// Test route
+// Test Route
 app.get("/", (req, res) => {
   res.send("Finance Tracker API is running...");
 });
 
-// Start server
 const PORT = 5000;
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
